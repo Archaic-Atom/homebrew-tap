@@ -5,9 +5,14 @@ class Atomx < Formula
   homepage "https://github.com/Archaic-Atom/atomx"
   url "https://github.com/Archaic-Atom/atomx/releases/download/v0.1.1/atomx_codex-0.1.1.tar.gz"
   version "0.1.1"
-  sha256 "7cb8a8e8bd31e1d446238eb7228debdc3b35d40b6a464b586372c5ee2ffb0886"
+  sha256 "0d1f84a62b846ad7c03b66fc185968157f545ffa77f97989e43ba2aca8efe470"
   license "MIT"
 
+  depends_on "cmake" => :build
+  depends_on "ninja" => :build
+  depends_on "pkgconf" => :build
+
+  depends_on "freetype"
   depends_on "jpeg-turbo"
   depends_on "libtiff"
   depends_on "python@3.14"
