@@ -7,6 +7,7 @@ class Atomx < Formula
   version "0.1.1"
   sha256 "0d1f84a62b846ad7c03b66fc185968157f545ffa77f97989e43ba2aca8efe470"
   license "MIT"
+  revision 1
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
@@ -37,6 +38,11 @@ class Atomx < Formula
   resource "mdurl" do
     url "https://files.pythonhosted.org/packages/d6/54/cfe61301667036ec958cb99bd3efefba235e65cdeb9c84d24a8293ba1d90/mdurl-0.1.2.tar.gz"
     sha256 "bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba"
+  end
+
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/7d/fa/3944b40b07da9ce895c0e6303a5ab7d53da063554f534556b134a54d6093/packaging-26.3.tar.gz"
+    sha256 "94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"
   end
 
   resource "pillow" do
@@ -94,6 +100,8 @@ class Atomx < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/atomx --version")
+    system "python3.14", "-m", "pip",
+           "--python=#{libexec}/bin/python", "check"
     (testpath/"smoke.py").write <<~PYTHON
       import asyncio
       from arcatom_codex.demo import DemoClient
