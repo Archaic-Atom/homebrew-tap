@@ -1,0 +1,29 @@
+name: Homebrew install
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  install:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    env:
+      HOMEBREW_NO_AUTO_UPDATE: 1
+      HOMEBREW_NO_INSTALL_CLEANUP: 1
+      HOMEBREW_NO_ASK: 1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: Homebrew/actions/setup-homebrew@e99025eb970cfa124b8284a35463d87426917478
+      - name: Install this formula revision
+        run: |
+          brew tap Archaic-Atom/tap
+          cp Formula/atomx.rb "$(brew --repository Archaic-Atom/tap)/Formula/atomx.rb"
+          brew install --build-from-source Archaic-Atom/tap/atomx
+      - run: brew test Archaic-Atom/tap/atomx
+      - run: atomx --version
