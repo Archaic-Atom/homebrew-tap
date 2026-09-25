@@ -23,7 +23,10 @@ jobs:
       - name: Install this formula revision
         run: |
           brew tap Archaic-Atom/tap
-          cp Formula/atomx.rb "$(brew --repository Archaic-Atom/tap)/Formula/atomx.rb"
+          tap_formula="$(brew --repository Archaic-Atom/tap)/Formula/atomx.rb"
+          if ! test Formula/atomx.rb -ef "$tap_formula"; then
+            cp Formula/atomx.rb "$tap_formula"
+          fi
           brew install --build-from-source Archaic-Atom/tap/atomx
       - run: brew test Archaic-Atom/tap/atomx
       - run: atomx --version
