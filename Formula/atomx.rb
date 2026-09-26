@@ -3,11 +3,10 @@ class Atomx < Formula
 
   desc "Keyboard-first terminal workspace for Codex sessions"
   homepage "https://github.com/Archaic-Atom/atomx"
-  url "https://github.com/Archaic-Atom/atomx/releases/download/v0.1.1/atomx_codex-0.1.1.tar.gz"
-  version "0.1.1"
-  sha256 "0d1f84a62b846ad7c03b66fc185968157f545ffa77f97989e43ba2aca8efe470"
+  url "https://github.com/Archaic-Atom/atomx/releases/download/v0.2.0/atomx_codex-0.2.0.tar.gz"
+  version "0.2.0"
+  sha256 "6eb179351bb9ec103742d47c3fcfd90db764de228896b9c600f0eef9f1eb0c06"
   license "MIT"
-  revision 1
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
@@ -51,8 +50,8 @@ class Atomx < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/ea/dd/65804b0c2925a1c821a05502ea57517b69a073ff400d25ab9faa3a2cf012/platformdirs-4.11.12.tar.gz"
-    sha256 "e8dc1cb58f1153fd7f61db1374317770baababec2480b37b8f01c6cc25b45267"
+    url "https://files.pythonhosted.org/packages/72/72/2075f80b8de9992872715444e7088ec3b6eea2bc0e99521e1d6e562e382d/platformdirs-4.11.14.tar.gz"
+    sha256 "0e706ec0a73a4ec023d11496153a4b6607a672f4b5027c23c3aefa9c9288c523"
   end
 
   resource "pygments" do
@@ -66,13 +65,13 @@ class Atomx < Formula
   end
 
   resource "textual" do
-    url "https://files.pythonhosted.org/packages/39/55/29416ef63de4c37b37da217b94439a28496a4dc585209f5bf1437a61d120/textual-6.12.0.tar.gz"
-    sha256 "a32e8edbf6abdb0c42d486e96bdf419eb3aa378edb1b1271b84637f3dbd64c73"
+    url "https://files.pythonhosted.org/packages/00/21/39a76b01bd5eea82a04baaca7580e105d8c59450df03998345bb2cfb307b/textual-8.2.8.tar.gz"
+    sha256 "3f106a9fbc73e39dd266c9712432087de78a6d644084c7c241d6a25c3169115b"
   end
 
   resource "textual-image" do
-    url "https://files.pythonhosted.org/packages/c2/e7/c82ea0604874b6d51d5717a0911061ae5810e36dad2e4d2b11fa7d54cdaa/textual_image-0.12.0.tar.gz"
-    sha256 "fdd0b5ff9c8a99740bc360a99ce014d563fa97d07a5b49b472470809f57c0a74"
+    url "https://files.pythonhosted.org/packages/09/19/fb4bca0ed5ff657f15b4d31cd3f415c62bc7c69cbd1ccb87457e025348bc/textual_image-0.14.1.tar.gz"
+    sha256 "502542955452ca6d67e4e0701021eed6bebbe2e1ccee8dfcb42e5083c9573eda"
   end
 
   resource "typing-extensions" do
@@ -81,8 +80,8 @@ class Atomx < Formula
   end
 
   resource "websockets" do
-    url "https://files.pythonhosted.org/packages/21/e6/26d09fab466b7ca9c7737474c52be4f76a40301b08362eb2dbc19dcc16c1/websockets-15.0.1.tar.gz"
-    sha256 "82544de02076bafba038ce055ee6412d68da13ab47f0c60cab827346de828dee"
+    url "https://files.pythonhosted.org/packages/18/72/fba934cb3dff7a85d811820efffcd141ddd52b5a2a01637f64551373ff4d/websockets-17.1.tar.gz"
+    sha256 "acfea4c20bf54384883ea33b1240fc1db4f52e190823a4e2b334bc3e8bfca96a"
   end
 
   def install
@@ -91,10 +90,9 @@ class Atomx < Formula
 
   def caveats
     <<~EOS
-      Install and sign in to the official Codex CLI separately:
-        codex login
-      Then launch AtomX with:
+      Install the official Codex CLI separately, then launch AtomX with:
         atomx
+      If Codex is not signed in, AtomX will offer its login flow.
     EOS
   end
 
