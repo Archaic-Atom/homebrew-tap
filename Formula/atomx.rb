@@ -10,6 +10,7 @@ class Atomx < Formula
   depends_on "cmake" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
+  depends_on "rust" => :build
 
   depends_on "freetype"
   depends_on "jpeg-turbo"
