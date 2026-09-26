@@ -4,7 +4,6 @@ class Atomx < Formula
   desc "Keyboard-first terminal workspace for Codex sessions"
   homepage "https://github.com/Archaic-Atom/atomx"
   url "https://github.com/Archaic-Atom/atomx/releases/download/v0.2.0/atomx_codex-0.2.0.tar.gz"
-  version "0.2.0"
   sha256 "6eb179351bb9ec103742d47c3fcfd90db764de228896b9c600f0eef9f1eb0c06"
   license "MIT"
 
